@@ -66,3 +66,7 @@ workflows:
       - say-bye:
           requires:
             - say-hello
+      - say-my-name
+      - print_output_file:
+          requires:
+            - say-my-name
