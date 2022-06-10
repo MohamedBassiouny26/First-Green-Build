@@ -40,12 +40,11 @@ jobs:
       - checkout
       - run:
           name: "Say bye"
-          command: echo $name > output.txt
+          command: echo $name > ./output.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: .
           paths:
-            - outputs/output.txt
-            - baz
+            - ./output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
@@ -54,7 +53,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run:
           command: cat output.txt
 # Invoke jobs via workflows
