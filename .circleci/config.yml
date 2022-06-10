@@ -42,7 +42,7 @@ jobs:
           name: "Say bye"
           command: echo $name > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: /tmp/workspace
           paths:
             - outputs/output.txt
             - baz
